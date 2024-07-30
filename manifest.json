@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "name": "Hackernoon Audio Sticky",
+    "version": "1.0",
+    "description": "Keeps the audio div of Hackernoon website at the top of the viewport when scrolling.",
+    "permissions": [
+      "https://hackernoon.com/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://hackernoon.com/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }

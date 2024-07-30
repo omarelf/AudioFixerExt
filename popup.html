@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HackerNoon Audio Controller</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Audio Control</h1>
+  <button id="stopAudio">Stop Audio</button>
+  <script>
+    document.getElementById('stopAudio').addEventListener('click', () => {
+      chrome.scripting.executeScript({
+        target: { tabId: chrome.tabs.query({ active: true, currentWindow: true })[0].id },
+        function: () => {
+          const audio = document.querySelector('audio');
+          if (audio) {
+            audio.pause();
+            alert('Audio Stopped');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
